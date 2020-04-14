@@ -20,7 +20,7 @@ const checkNumberOfInfectionFactor = (data) => {
   const numberOfDays = switchDurationToDays(data);
   const factor = Math.trunc(numberOfDays / 3);
 
-  return 2 ** factor;
+  return Math.pow(2, factor);
 };
 
 
