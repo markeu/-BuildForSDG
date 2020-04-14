@@ -39,6 +39,4 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`COVID-19 Estimator Server started on ${port}`);
-});
+app.listen(port);
