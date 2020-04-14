@@ -11,19 +11,19 @@ const covid19ImpactEstimator = (data) => {
   } = data;
   const factor = checkNumberOfInfectionFactor(data);
 
-  const currentlyInfected = Number.parseInt(reportedCases * 10, 10);
-  const severeImpactCurrentlyInfected = Number.parseInt(reportedCases * 50, 10);
+  const currentlyInfected = Math.trunc(reportedCases * 10);
+  const severeImpactCurrentlyInfected = Math.trunc(reportedCases * 50);
 
-  const infectedByRequestedTime = Number.parseInt(currentlyInfected * factor, 10);
-  const severeImpactInfectedByRequestedTime = Number.parseInt(
-    severeImpactCurrentlyInfected * factor, 10
+  const infectedByRequestedTime = Math.trunc(currentlyInfected * factor);
+  const severeImpactInfectedByRequestedTime = Math.trunc(
+    severeImpactCurrentlyInfected * factor
   );
 
-  const severeCasesByRequestedTime = Number.parseInt(
-    0.15 * infectedByRequestedTime, 10
+  const severeCasesByRequestedTime = Math.trunc(
+    0.15 * infectedByRequestedTime
   );
-  const severeImpactSevereCasesByReqTime = Number.parseInt(
-    0.15 * severeImpactInfectedByRequestedTime, 10
+  const severeImpactSevereCasesByReqTime = Math.trunc(
+    0.15 * severeImpactInfectedByRequestedTime
   );
 
   const hospitalBedsByRequestedTime = bedSpaceByRequestedTimeComputation(
@@ -33,18 +33,18 @@ const covid19ImpactEstimator = (data) => {
     totalHospitalBeds, severeImpactSevereCasesByReqTime
   );
 
-  const casesForICUByRequestedTime = Number.parseInt(
-    0.05 * infectedByRequestedTime, 10
+  const casesForICUByRequestedTime = Math.trunc(
+    0.05 * infectedByRequestedTime
   );
-  const severeImpactCasesForICUByReqTime = Number.parseInt(
-    0.05 * severeImpactInfectedByRequestedTime, 10
+  const severeImpactCasesForICUByReqTime = Math.trunc(
+    0.05 * severeImpactInfectedByRequestedTime
   );
 
-  const casesForVentilatorByRequestedTime = Number.parseInt(
-    0.02 * infectedByRequestedTime, 10
+  const casesForVentilatorByRequestedTime = Math.trunc(
+    0.02 * infectedByRequestedTime
   );
-  const severeImpactCasesForVentilatorByReqTime = Number.parseInt(
-    0.02 * severeImpactInfectedByRequestedTime, 10
+  const severeImpactCasesForVentilatorByReqTime = Math.trunc(
+    0.02 * severeImpactInfectedByRequestedTime
   );
 
   const dollarsInFlight = dollarsInFlightComputation(

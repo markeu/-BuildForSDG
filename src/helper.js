@@ -18,7 +18,7 @@ const switchDurationToDays = ({ periodType, timeToElapse }) => {
 
 const checkNumberOfInfectionFactor = (data) => {
   const numberOfDays = switchDurationToDays(data);
-  const factor = Number.parseInt(numberOfDays / 3, 10);
+  const factor = Math.trunc(numberOfDays / 3);
 
   return 2 ** factor;
 };
@@ -26,7 +26,7 @@ const checkNumberOfInfectionFactor = (data) => {
 
 const bedSpaceByRequestedTimeComputation = (totalHospitalBeds, severeCases) => {
   const availableBedSpace = totalHospitalBeds * 0.35;
-  return Number.parseInt(availableBedSpace - severeCases, 10);
+  return Math.trunc(availableBedSpace - severeCases);
 };
 
 
@@ -42,7 +42,7 @@ const dollarsInFlightComputation = (data, infectionsByRequestedTime) => {
   const dollarsInFlight = (infectionsByRequestedTime * avgDailyIncomePopulation
       * avgDailyIncomeInUSD) / dayPeriod;
 
-  return Number.parseInt(dollarsInFlight, 10);
+  return Math.trunc(dollarsInFlight);
 };
 
 export {
