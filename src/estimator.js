@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
     checkNumberOfInfectionFactor,
     bedSpaceByRequestedTimeComputation,
@@ -59,8 +58,3 @@ const covid19ImpactEstimator = (data) => {
 export default covid19ImpactEstimator;
 
 
-=======
-const covid19ImpactEstimator = (data) => data;
-
-export default covid19ImpactEstimator;
->>>>>>> e0bbc6f2d2386f2598ff54c624f51285783d7f1b
